@@ -1,0 +1,44 @@
+[
+    {
+        "title": "Wildlife Photography",
+        "img": "https://images.unsplash.com/photo-1632137395298-22083ffd2554?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fHdpbGQlMjBwaG90b2dyYXBoeXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+        "rating": "4.8/5",
+        "price": "899",
+        "details": "Crocodiles might be easier than people, but they’re still not as easy as building an outstanding online portfolio. Even Steve Irwin himself would agree with us on this one. The Wildlife Photography website template will put your photos front and center, letting the beautiful subjects speak for themselves. A beautiful home page with a carousel of your best images welcomes visitors, who are then guided to a wider selection of your work. Segmenting your portfolio by project or wildlife photography expedition will allow your audience to immerse themselves in the unique atmosphere of each one."
+    },
+    {
+        "title": "Travel Photographer",
+        "img": "https://images.unsplash.com/photo-1503220317375-aaad61436b1b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fHRyYXZlbHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=1000&q=60",
+        "rating": "4.9/5",
+        "price": "1099",
+        "details": "Photography allows us to capture our own view of life and share it with the world. This Travel Photographer template is made for wanderers who roam this planet, camera in hand, in search of new perspectives. Breaking down your portfolio into separate galleries for each trip will allow you to create a cohesive look that encompasses vastly different scenarios. On top of that, it will make it much easier to update."
+    },
+    {
+        "title": "Couples Photography",
+        "img": "https://images.unsplash.com/photo-1575921900760-9063dc794e0c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Y291cGxlJTIwcGhvdG9ncmFwaHl8ZW58MHx8MHx8&auto=format&fit=crop&w=1000&q=60",
+        "rating": "4.7/5",
+        "price": "799",
+        "details": "Love is in the air, and in this Couples Photography website template. Display your services and a selection of your best work with this light, minimalistic website. Using Wix Photo Albums, you’ll be able to easily create individual galleries for your clients. Each of these galleries has its own URL, making it really simple for the happy couple to share your work with their loved ones (and their Facebook friends)."
+    },
+    {
+        "title": "Photography Blog",
+        "img": "https://images.unsplash.com/photo-1481762554390-ff5562748bdf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fHBob3RvZ3JhcGh5JTIwYmxvZ3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=1000&q=60",
+        "rating": "4.5/5",
+        "price": "850",
+        "details": "A picture might be worth a thousand words, but some stories demand to be written. This Photography Blog template is meant for those who have a lot to say, both with and without a camera. In this website, the thoughts and stories accompanying your photos are the first thing visitors see. Writing a photography blog will not only bring you closer to people, but also position yourself as an expert in the field. On top of that, creating a blog will do wonders for your SEO."
+    },
+    {
+        "title": "Art Photographer",
+        "img": "https://images.unsplash.com/photo-1509612355076-745a6bea8158?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fGFydCUyMHBob3RvZ3JhcGhlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=1000&q=60",
+        "rating": "4.6/5",
+        "price": "799",
+        "details": "When you think of an artist, the image that comes to mind is probably someone with a strong personality who aims to let their work speak for them. That is exactly what this Art Photographer website template is about. A clean design dominated by large images and hardly any text. You know what else artists do? Sell their art. This is why this template includes the Wix Art Store, a powerful tool that will allow you to easily sell photos on your art portfolio."
+    },
+    {
+        "title": "Food Photographer",
+        "img": "https://images.unsplash.com/photo-1496412705862-e0088f16f791?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fGZvb2QlMjBwaG90b2dyYXBoZXJ8ZW58MHx8MHx8&auto=format&fit=crop&w=1000&q=60",
+        "rating": "4.6/5",
+        "price": "699",
+        "details": "This drool-worthy Food Photographer template will make sure that visitors end up hungry for more of your work. Categorize your photos by type of dish to show off your diverse skills without overcrowding the portfolio. This template also includes a blog, perfect for sharing food photography tips and the recipes behind the amazing dishes you capture. This will help establish your expertise, and will also serve as an incentive for visitors to come back to your site and learn more."
+    }
+]
