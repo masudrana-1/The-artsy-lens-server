@@ -86,9 +86,6 @@ async function run() {
         app.get('/reviews', verifyJWt, async (req, res) => {
 
             const decoded = req.decoded;
-            // console.log('inside reviews api', decoded);
-
-            // console.log(decoded.email, req.query.email);
             if (decoded.email !== req.query.email) {
 
                 return res.status(403).send({ message: 'unauthorized access' })
@@ -136,7 +133,6 @@ async function run() {
             }
             const result = await reviewCollection.updateOne(filter, updatedReview, option);
             res.send(result);
-            // console.log(updatedUser);
         })
 
 
