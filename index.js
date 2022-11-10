@@ -109,7 +109,7 @@ async function run() {
         })
 
         // to post service 
-        app.post('/allservices', async (req, res) => {
+        app.post('/allservices', verifyJWt, async (req, res) => {
             const order = req.body;
             const result = await serviceCollection.insertOne(order);
             res.send(result);
@@ -122,6 +122,30 @@ async function run() {
             const result = await reviewCollection.insertOne(order);
             res.send(result);
         });
+
+
+        // update reviews 
+        // app.put('/reviews/:id', async (req, res) => {
+        //     const id = req.params.id;
+        //     const filter = { _id: ObjectId(id) }
+        //     const review = reviewCollection.find(filter);
+
+        //     console.log(review);
+        //     const option = { upsert: true };
+        //     const updatedUser = {
+        //         $set: {
+        //             serviceId: review.serviceId,
+        //             serviceName: review.serviceName,
+        //             serviceImg: review.img,
+        //             name: review.name,
+        //             email: review.email,
+        //             comment: review.comment
+        //         }
+        //     }
+        //     const result = await reviewCollection.updateOne(filter, updatedUser, option);
+        //     res.send(result);
+        //     // console.log(updatedUser);
+        // })
 
         // update review 
         // app.put('/reviews/:id', async (req, res) => {
