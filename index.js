@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const jwt = require('jsonwebtoken');
 require('dotenv').config();
 const app = express();
 const port = process.env.PORT || 5000;
@@ -20,6 +21,26 @@ const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@clu
 
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
 
+// jwt token varify
+function verifyJWt(req, res, next) {
+    const authHeader = req.headers.authorization;
+    // console.log(authHeader)
+
+    if (!authHeader) {
+        return res.send(401)({ message: 'unauthorized access' })
+    }
+    const token = authHeader.split(' ')[1];
+    jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, function (error, decoded) {
+        // console.log(token);
+        if (error) {
+            // console.log(error)
+            return res.status(403).send({ message: 'Forbidden access' })
+        }
+        req.decoded = decoded;
+
+        next();
+    })
+}
 
 async function run() {
     try {
@@ -27,6 +48,16 @@ async function run() {
         const reviewCollection = client.db('TheArtsyLens').collection('reviews');
 
         console.log('db connected')
+
+        // jwt token 
+
+        app.post('/jwt', async (req, res) => {
+            const user = req.body;
+            // console.log(user)
+            const token = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '10h' })
+            res.send({ token });
+        })
+
 
         // to get service 
 
@@ -52,15 +83,25 @@ async function run() {
         })
 
         // to get review 
-        app.get('/reviews', async (req, res) => {
+        app.get('/reviews', verifyJWt, async (req, res) => {
+
+            const decoded = req.decoded;
+            // console.log('inside reviews api', decoded);
+
+            // console.log(decoded.email, req.query.email);
+            if (decoded.email !== req.query.email) {
+
+                return res.status(403).send({ message: 'unauthorized access' })
+            }
+
             let query = {};
 
             // filter by email 
-            // if (req.query.email) {
-            //     query = {
-            //         email: req.query.email
-            //     }
-            // }
+            if (req.query.email) {
+                query = {
+                    email: req.query.email
+                }
+            }
 
             const cursor = reviewCollection.find(query);
             const review = await cursor.toArray();
@@ -81,6 +122,27 @@ async function run() {
             const result = await reviewCollection.insertOne(order);
             res.send(result);
         });
+
+        // update review 
+        // app.put('/reviews/:id', async (req, res) => {
+        //     const id = req.params.id;
+        //     const filter = { _id: ObjectId(id) }
+        //     const review = await reviewCollection.find(filter);
+        //     const option = { upsert: true };
+        //     const updatedReview = {
+        //         $set: {
+        //             serviceId: review.serviceId,
+        //             serviceName: review.serviceName,
+        //             serviceImg: review.img,
+        //             name: review.name,
+        //             email: review.email,
+        //             comment: review.comment
+        //         }
+        //     }
+        //     const result = await reviewCollection.updateOne(filter, updatedReview, option);
+        //     res.send(result);
+        //     // console.log(updatedUser);
+        // })
 
         // to delete reviews 
         app.delete('/reviews/:id', async (req, res) => {
