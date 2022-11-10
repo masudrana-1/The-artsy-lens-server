@@ -125,48 +125,21 @@ async function run() {
 
 
         // update reviews 
-        // app.put('/reviews/:id', async (req, res) => {
-        //     const id = req.params.id;
-        //     const filter = { _id: ObjectId(id) }
-        //     const review = reviewCollection.find(filter);
+        app.patch('/reviews/:id', async (req, res) => {
+            const id = req.params.id;
+            const filter = { _id: ObjectId(id) }
+            const option = { upsert: true };
+            const updatedReview = {
+                $set: {
+                    ...req.body
+                }
+            }
+            const result = await reviewCollection.updateOne(filter, updatedReview, option);
+            res.send(result);
+            // console.log(updatedUser);
+        })
 
-        //     console.log(review);
-        //     const option = { upsert: true };
-        //     const updatedUser = {
-        //         $set: {
-        //             serviceId: review.serviceId,
-        //             serviceName: review.serviceName,
-        //             serviceImg: review.img,
-        //             name: review.name,
-        //             email: review.email,
-        //             comment: review.comment
-        //         }
-        //     }
-        //     const result = await reviewCollection.updateOne(filter, updatedUser, option);
-        //     res.send(result);
-        //     // console.log(updatedUser);
-        // })
 
-        // update review 
-        // app.put('/reviews/:id', async (req, res) => {
-        //     const id = req.params.id;
-        //     const filter = { _id: ObjectId(id) }
-        //     const review = await reviewCollection.find(filter);
-        //     const option = { upsert: true };
-        //     const updatedReview = {
-        //         $set: {
-        //             serviceId: review.serviceId,
-        //             serviceName: review.serviceName,
-        //             serviceImg: review.img,
-        //             name: review.name,
-        //             email: review.email,
-        //             comment: review.comment
-        //         }
-        //     }
-        //     const result = await reviewCollection.updateOne(filter, updatedReview, option);
-        //     res.send(result);
-        //     // console.log(updatedUser);
-        // })
 
         // to delete reviews 
         app.delete('/reviews/:id', async (req, res) => {
